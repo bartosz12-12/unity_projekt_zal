@@ -24,7 +24,7 @@ public class MoveWithCharacterController : MonoBehaviour
 
 
         groundedPlayer = controller.isGrounded;
-        if (groundedPlayer && playerVelocity.y < 0)
+        if (groundedPlayer && playerVelocity.y <= 0)
         {
             playerVelocity.y = 0f;
         }
