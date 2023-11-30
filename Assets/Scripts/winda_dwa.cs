@@ -8,7 +8,7 @@ public class Winda_dwa : MonoBehaviour
     private float speed = 5.0f;
     private Vector3 target;
     private Vector3 initialPosition;
-
+    private Transform oldParent;
 
     void Start()
     {
@@ -26,6 +26,26 @@ public class Winda_dwa : MonoBehaviour
             Vector3 temp = target;
             target = initialPosition;
             initialPosition = temp;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Player wszed³ na windê.");
+            oldParent = other.gameObject.transform.parent;
+            other.gameObject.transform.parent = transform;
+
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Player zszed³ z windy.");
+            other.gameObject.transform.parent = null;
         }
     }
 }

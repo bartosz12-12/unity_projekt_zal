@@ -36,9 +36,7 @@ public class winda : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player wszed³ na windê.");
-            // zapamiêtujemy "starego rodzica"
             oldParent = other.gameObject.transform.parent;
-            // skrypt przypisany do windy, ale other mo¿e byæ innym obiektem
             other.gameObject.transform.parent = transform;
 
         }
@@ -49,7 +47,7 @@ public class winda : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player zszed³ z windy.");
-            other.gameObject.transform.parent = oldParent;
+            other.gameObject.transform.parent = null;
         }
     }
 }

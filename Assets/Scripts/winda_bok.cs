@@ -13,6 +13,7 @@ public class Winda_bok : MonoBehaviour
     {
         initialPosition = transform.position;
         target = new Vector3(transform.position.x + 20, transform.position.y, transform.position.z);
+
     }
 
     // Update is called once per frame
@@ -32,10 +33,8 @@ public class Winda_bok : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player wszed³ na windê.");
-            // zapamiêtujemy "starego rodzica"
             oldParent = other.gameObject.transform.parent;
             Debug.Log("oldparent" + oldParent);
-            // skrypt przypisany do windy, ale other mo¿e byæ innym obiektem
             other.gameObject.transform.parent = transform;
             Debug.Log(other.gameObject.transform.parent);
         }
@@ -46,7 +45,7 @@ public class Winda_bok : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player zszed³ z windy.");
-            other.gameObject.transform.parent = oldParent;
+            other.gameObject.transform.parent = null;
         }
     }
 }
