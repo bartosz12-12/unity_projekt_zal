@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public bool friz = false;
     public float frizTime = 0;
-    // Start is called before the first frame update
     public finish finish;
     void Start()
     {
